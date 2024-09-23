@@ -5,7 +5,9 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.shoestap.components.ShoeCard
@@ -21,7 +23,20 @@ fun MainScreen(shoeViewModel: ShoeViewModel) {
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Shoes Tap", fontSize = 30.sp) })
+            TopAppBar(
+                title = {
+                    Box(
+                        modifier = Modifier.fillMaxWidth(), // Fill the width of the TopAppBar
+                        contentAlignment = Alignment.Center // Center the content
+                    ) {
+                        Text(
+                            text = "Shoes Tap",
+                            fontSize = 30.sp,
+                            fontWeight = FontWeight.Bold // Make the text bold
+                        )
+                    }
+                }
+            )
         }
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
